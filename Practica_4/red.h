@@ -18,6 +18,14 @@ public:
     Router* getRouter(const string& id) const;
     bool existeRouter(const string& id) const;
 
+    void actualizarTablas();
+
+    void agregarEnlace(const string& a, const string& b, int costo);
+    void eliminarEnlace(const string& a, const string& b);
+
+    vector<string> camino(const string& origen, const string& destino) const;
+    int costoCamino(const string& origen, const string& destino) const;
+
 };
 
 #endif // RED_H
