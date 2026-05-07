@@ -73,3 +73,33 @@ void Router::actualizarCosto(string destino, int costo) {
 
     tablaCostos[destino] = costo;
 }
+void Router::actualizarRuta(string destino, vector<string> camino) {
+
+    rutas[destino] = camino;
+}
+
+int Router::getCosto(const string& destino) const {
+    auto it = tablaCostos.find(destino);
+    if (it != tablaCostos.end()) return it->second;
+    return INT_MAX;
+}
+
+void Router::resetTablaCostos() {
+
+    tablaCostos.clear();
+
+    rutas.clear();
+
+    // costo hacia sí mismo
+    tablaCostos[nombre] = 0;
+    rutas[nombre] = { nombre };
+
+    // vecinos directos
+    for (auto v : vecinos) {
+
+        tablaCostos[v.first] = v.second;
+
+        rutas[v.first] = { nombre, v.first };
+    }
+}
+
