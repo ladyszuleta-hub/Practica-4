@@ -20,6 +20,7 @@ int main() {
         cout << "4. Mostrar tabla de costos\n";
         cout << "5. Salir\n";
         cout << "Seleccione una opcion: ";
+
         cin >> opcion;
 
         switch(opcion) {
@@ -40,8 +41,9 @@ int main() {
                 cin >> costo;
             }
 
-            router.agregarVecino(vecino, costo);
+            router.agregarVecino(vecino,costo);
             cout << "\nVecino agregado correctamente.\n";
+
             break;
         }
 
@@ -51,9 +53,9 @@ int main() {
 
             cout << "\nIngrese el vecino a eliminar: ";
             cin >> vecino;
-
             router.eliminarVecino(vecino);
             cout << "\nVecino eliminado.\n";
+
             break;
         }
 
