@@ -52,13 +52,13 @@ void RED::actualizarTablas() {
     for (auto& par : routers) {
         string origen = par.first;
         Router* r = par.second;
-        //r->resetTabla(); falta crear en router
+        r->resetTablaCostos();
 
         auto resultados = dijkstra(origen);
         for (auto& [dest, info] : resultados) {
             if (dest == origen) continue;
             r->actualizarCosto(dest, info.first);
-            //r->actualizarRuta(dest, info.second); falta crear en router
+            r->actualizarRuta(dest, info.second);
         }
     }
 }
