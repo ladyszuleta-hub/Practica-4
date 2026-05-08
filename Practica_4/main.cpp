@@ -1,4 +1,3 @@
-#include "router.h"
 #include <iostream>
 #include "red.h"
 
@@ -7,13 +6,6 @@ using namespace std;
 int main() {
 
     RED red;
-
-    /*string nombre;
-
-    cout << "Ingrese el nombre del router: ";
-    cin >> nombre;
-
-    Router router(nombre);*/
 
     int opcion;
 
