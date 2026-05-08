@@ -26,6 +26,9 @@ public:
     vector<string> camino(const string& origen, const string& destino) const;
     int costoCamino(const string& origen, const string& destino) const;
 
+    void mostrarTopologia() const;
+    void mostrarTablas() const;
+
 };
 
 #endif // RED_H

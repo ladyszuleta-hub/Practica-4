@@ -153,3 +153,30 @@ int RED::costoCamino(const string& origen, const string& destino) const {
     return res[destino].first;
 }
 
+void RED::mostrarTopologia() const {
+    cout << "\n===== TOPOLOGÍA DE LA RED =====\n";
+    cout << "Routers: ";
+    for (auto& par : routers) cout << par.first << " ";
+    cout << "\n\nEnlaces:\n";
+    // Para no repetir A<->B y B<->A
+    vector<pair<string,string>> vistos;
+    for (auto& par : routers) {
+        for (auto& vec : par.second->getVecinos()) {
+            string a = par.first, b = vec.first;
+            if (a > b) swap(a, b);
+            if (find(vistos.begin(), vistos.end(), make_pair(a,b)) == vistos.end()) {
+                cout << "  " << a << " <-> " << b << "  costo: " << vec.second << "\n";
+                vistos.push_back({a, b});
+            }
+        }
+    }
+    cout << "================================\n";
+}
+
+void RED::mostrarTablas() const {
+    cout << "\n===== TABLAS DE ENRUTAMIENTO =====\n";
+    for (auto& par : routers) {
+        par.second->mostrarTablaCostos();
+        cout << "\n";
+    }
+}
