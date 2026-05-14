@@ -12,8 +12,7 @@ Router::Router(string nombre) {
     tablaCostos[nombre] = 0;
 }
 
-void Router::agregarVecino(string vecino,
-                           int costo) {
+void Router::agregarVecino(string vecino,int costo) {
 
     vecinos[vecino] = costo;
 

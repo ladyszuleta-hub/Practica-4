@@ -1,7 +1,6 @@
 #include "red.h"
+#include "cargaarchivos.h"
 #include <iostream>
-#include <fstream>
-#include <sstream>
 #include <climits>
 #include <queue>
 #include <algorithm>
@@ -128,7 +127,7 @@ RED::dijkstra(const string& origen) const {
         string dest = par.first;
         vector<string> path;
         if (dist[dest] == INT_MAX) {
-            resultado[dest] = {INT_MAX, {}};
+            resultado[dest] = {{}, {}};
             continue;
         }
         // Reconstruir desde dest hacia origen
