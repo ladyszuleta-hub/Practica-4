@@ -29,6 +29,7 @@ public:
     void mostrarTopologia() const;
     void mostrarTablas() const;
 
+
 };
 
 #endif // RED_H

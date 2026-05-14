@@ -1,31 +1,42 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include "red.h"
+#include "cargaarchivos.h"
 
 using namespace std;
 
 int main() {
 
     RED red;
+    Cargaarchivos ca;
 
     int opcion;
 
     do {
 
         cout << "\n========== MENU RED ==========\n";
-        cout << "1. Agregar router\n";
-        cout << "2. Eliminar router\n";
-        cout << "3. Agregar enlace\n";
-        cout << "4. Eliminar enlace\n";
-        cout << "5. Mostrar topologia\n";
-        cout << "6. Mostrar tablas\n";
-        cout << "7. Buscar camino\n";
-        cout << "8. Salir\n";
+        cout << "1. Agregar topologia desde archivo\n";
+        cout << "2. Agregar router\n";
+        cout << "3. Eliminar router\n";
+        cout << "4. Agregar enlace\n";
+        cout << "5. Eliminar enlace\n";
+        cout << "6. Mostrar topologia\n";
+        cout << "7. Mostrar tablas\n";
+        cout << "8. Buscar camino\n";
+        cout << "9. Salir\n";
         cout << "Seleccione una opcion: ";
 
         cin >> opcion;
         switch(opcion) {
 
         case 1: {
+
+            ca.cargarDesdeArchivo("topologia.txt", red);
+
+            break;
+        }
+        case 2: {
 
             string id;
             cout << "\nNombre del router: ";
@@ -35,7 +46,7 @@ int main() {
             break;
         }
 
-        case 2: {
+        case 3: {
 
             string id;
 
@@ -47,7 +58,7 @@ int main() {
             break;
         }
 
-        case 3:{
+        case 4:{
             string a, b;
             int costo;
             cout << "Router origen: "<<endl;
@@ -61,7 +72,7 @@ int main() {
             break;
         }
 
-        case 4:{
+        case 5:{
             string a, b;
             cout << "Router 1:"<<endl;
             cin >> a;
@@ -70,15 +81,15 @@ int main() {
             red.eliminarEnlace(a,b);
             break;
         }
-        case 5:{
+        case 6:{
             red.mostrarTopologia();
             break;
         }
-        case 6:{
+        case 7:{
             red.mostrarTablas();
             break;
         }
-        case 7:{
+        case 8:{
             string origen, destino;
             cout<<"Origen: ";
             cin>> origen;
@@ -100,7 +111,7 @@ int main() {
             }
             break;
         }
-        case 8:{
+        case 9:{
         cout << "Saliendo...\n";
         break;
         }
@@ -108,7 +119,7 @@ int main() {
         cout << "\nOpcion invalida.\n";
     }
 
-    } while(opcion != 8);
+    } while(opcion != 9);
 
     return 0;
 }
